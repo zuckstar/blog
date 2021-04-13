@@ -7,7 +7,8 @@ module.exports = {
       {
         title: 'CSS',
         children: [
-          ['/css/bfc', '什么是BFC?']
+          ['/css/box-model', '盒子模型'],
+          ['/css/bfc', '什么是BFC?'],
         ]
       }
     ]
