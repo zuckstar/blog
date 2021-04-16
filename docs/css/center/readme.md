@@ -171,4 +171,5 @@
 ## 参考文章
 
 [让一个元素水平垂直居中，到底有多少种方案？](http://47.98.159.95/my_blog/blogs/css/001.html#%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD)
-[https://www.jianshu.com/p/907f99004c3e](https://www.jianshu.com/p/907f99004c3e)
+
+[10种水平垂直居中对齐方式](https://www.jianshu.com/p/907f99004c3e)
