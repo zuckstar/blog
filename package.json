@@ -4,7 +4,7 @@
   "description": "博客",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "vuepress dev docs",
+    "dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "deploy": "bash deploy.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/githubzhangsheng/blog#readme",
   "dependencies": {},
   "devDependencies": {
-    "vuepress": "^1.8.2"
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-demo-container": "^0.2.0"
   }
 }

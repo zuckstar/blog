@@ -77,7 +77,7 @@ IE盒子模型 box-sizing: border-box;
 
 由于模型的不同，这里的视觉总宽度就差了 22px。
 
-### 如何获取元素 CSS 属性
+## 如何获取元素 CSS 属性
 ```javascript
 let c1 = document.getElementById('c1')
 // 只能获取元素的行内样式的属性值，如果没写行内样式则拿不到具体的值，默认为空串
@@ -86,26 +86,26 @@ console.log(c1.style.width) // ''
 console.log(window.getComputedStyle(c1).width) // '100px'
 ```
 
-### clientWidth、scrollHeight、offsetWidth
-- offset 系列
-    - 获取网页元素的绝对位置
-    - offsetWidth = width + 左右padding + 左右boder
-    - offsetTop: 当前元素上边框到最近的已定位父级（offsetParent） 上边框的距离。如果父级都没有定位，则是到body 顶部的距离
+## clientWidth、scrollHeight、offsetWidth
+### offset 系列
+- 获取网页元素的绝对位置
+- offsetWidth = width + 左右padding + 左右boder
+- offsetTop: 当前元素上边框到最近的已定位父级（offsetParent） 上边框的距离。如果父级都没有定位，则是到body 顶部的距离
 
 ![offset](./p-box-5.gif)
-- client 系列
-    - 网页中的每个元素都具有 clientWidth 和 clientHeight 属性，表示可视区域的宽高，即元素内容加上padding以后的大小，而不包括border值和滚动条的大小
-    - clientWidth = width + 左右padding
-    - clientTop = 上边框的宽度
+###  client 系列
+- 网页中的每个元素都具有 clientWidth 和 clientHeight 属性，表示可视区域的宽高，即元素内容加上padding以后的大小，而不包括border值和滚动条的大小
+- clientWidth = width + 左右padding
+- clientTop = 上边框的宽度
 
 ![client](./p-box-3.png)
-- scroll 系列
-    - 获取网页元素的相对位置
-    - scrollHeight：获取指定标签内容层的真实高度（可视区域高度+被隐藏区域高度）
-    - scrollTop :内容层顶部到可视区域顶部的距离
+### scroll 系列
+- 获取网页元素的相对位置
+- scrollHeight：获取指定标签内容层的真实高度（可视区域高度+被隐藏区域高度）
+- scrollTop :内容层顶部到可视区域顶部的距离
 
 ![scroll](./p-box-6.gif)
-- 完整版示例图（酌情观看）
+### 完整版示例图（酌情观看）
 ![box-4](./p-box-4.png)
 ## 参考文章
 
