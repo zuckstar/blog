@@ -6,12 +6,22 @@ module.exports = {
   themeConfig: {
     sidebar: [
       {
+        title: 'HTML',
+        children: [
+
+        ]
+      },
+      {
         title: 'CSS',
         children: [
           ['/css/box-model/', '盒子模型'],
           ['/css/bfc/', '什么是BFC?'],
-          ['/css/center/', '居中大法']
+          ['/css/center/', '居中大法'],
+          ['/css/flex/', 'flex 布局']
         ]
+      },
+      {
+        title: 'Javascript'
       }
     ]
   }
