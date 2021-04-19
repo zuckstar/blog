@@ -8,7 +8,8 @@ module.exports = {
       {
         title: 'HTML',
         children: [
-
+          ['/html/features/', 'HTML5 新特性'],
+          ['/html/semantic/', 'HTML5 语义化'],
         ]
       },
       {
