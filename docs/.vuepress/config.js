@@ -22,7 +22,10 @@ module.exports = {
         ]
       },
       {
-        title: 'Javascript'
+        title: 'JS',
+        children: [
+          ['/js/serialize/', '对象序列化']
+        ]
       }
     ]
   }
