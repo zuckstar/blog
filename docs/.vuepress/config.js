@@ -24,7 +24,9 @@ module.exports = {
       {
         title: 'JS',
         children: [
-          ['/js/serialize/', '对象序列化']
+          ['/js/type/', '基本数据类型'],
+          ['/js/transfer/', '数据类型转换'],
+          ['/js/deepcopy/', '深拷贝和浅拷贝']
         ]
       }
     ]
