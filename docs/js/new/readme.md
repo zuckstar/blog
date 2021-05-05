@@ -45,7 +45,17 @@ me.printIntroduction();
 // expected output: "My name is Matthew. Am I human? true"
 ```
 
-## 代码实现
+### 手动实现
+
+```js
+Object.prototype.create = function(proto) {
+    function F() {}
+    F.prototype = proto
+    return new F()
+}
+```
+
+## new 代码实现
 
 当代码 new Foo(...) 执行时，会发生以下事情：
 

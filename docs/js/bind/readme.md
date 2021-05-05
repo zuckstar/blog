@@ -65,7 +65,7 @@ Function.prototype.newBind = function(context) {
         }
       }
       
-    resultFn = new tempFn();
+    resultFn.prototype = new tempFn();
     return resultFn;
 }
 ```
