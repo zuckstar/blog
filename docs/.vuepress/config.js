@@ -38,6 +38,12 @@ module.exports = {
         ]
       },
       {
+        title: 'JS数组',
+        children: [
+          ['/js/array/flat/', '数组扁平化']
+        ]
+      },
+      {
         title: 'ES6新特性',
         children: [
           ['/es6/let/', 'let 和 const'],
