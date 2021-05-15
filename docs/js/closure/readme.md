@@ -123,10 +123,6 @@ for (let i = 1; i <= 10; i++) {
 }
 ```
 
-### 防抖
-
-### 节流
-
 ## 参考
 
 [闭包](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures)

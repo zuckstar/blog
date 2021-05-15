@@ -27,6 +27,7 @@ module.exports = {
         children: [
           ['/js/type/', '基本数据类型'],
           ['/js/transfer/', '数据类型转换'],
+          ['/js/this/', 'this对象'],
           ['/js/for/', 'for语句'],
           ['/js/closure/', '闭包'],
           ['/js/deepcopy/', '深拷贝和浅拷贝'],
@@ -42,6 +43,12 @@ module.exports = {
           ['/es6/let/', 'let 和 const'],
           ['/es6/iterator/', '迭代器'],
           ['/es6/symbol/', 'Symbol']
+        ]
+      },
+      {
+        title: '性能优化',
+        children: [
+          ['/performance/debounce&throttle/', '防抖和节流']
         ]
       }
     ]
