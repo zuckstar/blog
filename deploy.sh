@@ -14,6 +14,6 @@ git add -A
 git commit -m 'deploy'
 
 # 填写要发布博客的仓库地址
-git push -f https://github.com/githubzhangsheng/githubzhangsheng.github.io.git master
+git push -f https://github.com/zuckstar/zuckstar.github.io.git master
 
 cd -
