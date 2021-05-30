@@ -41,7 +41,8 @@ module.exports = {
       {
         title: 'JS数组',
         children: [
-          ['/js/array/flat/', '数组扁平化']
+          ['/js/array/flat/', '数组扁平化'],
+          ['/js/array/arrayLike/', '伪数组转数组']
         ]
       },
       {
