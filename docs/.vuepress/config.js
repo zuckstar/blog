@@ -35,6 +35,7 @@ module.exports = {
           ['/js/call&apply/', 'call和apply函数'],
           ['/js/bind/', 'bind函数'],
           ['/js/new/', '模拟实现 new 操作符'],
+          ['/js/event/', '事件']
         ]
       },
       {
