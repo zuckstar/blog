@@ -42,7 +42,15 @@ module.exports = {
         title: 'JS数组',
         children: [
           ['/js/array/flat/', '数组扁平化'],
-          ['/js/array/arrayLike/', '伪数组转数组']
+          ['/js/array/arrayLike/', '伪数组转数组'],
+          ['/js/array/forEach/', 'forEach&some&every'],
+          ['/js/array/contain/', '判断数组是否包含某元素'],
+          ['/js/array/map/', 'map方法'],
+          ['/js/array/reduce/', 'reduce方法'],
+          ['/js/array/splice/', 'splice方法'],
+          ['/js/array/filter/', 'filter方法'],
+          ['/js/array/push&pop/', 'push&pop方法'],
+          ['/js/array/sort/', 'sort方法'],
         ]
       },
       {
