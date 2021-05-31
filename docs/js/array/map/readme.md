@@ -1,4 +1,4 @@
-# Array.map()
+# Array.prototype.map()
 
 ## 数组的 map 方法
 
