@@ -66,6 +66,12 @@ module.exports = {
         children: [
           ['/performance/debounce&throttle/', '防抖和节流']
         ]
+      },
+      {
+        title: '浏览器',
+        children: [
+          ['/browser/cors/', '跨域']
+        ]
       }
     ]
   }
