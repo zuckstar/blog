@@ -72,6 +72,12 @@ module.exports = {
         children: [
           ['/browser/cors/', '跨域']
         ]
+      },
+      {
+        title: 'V8引擎',
+        children: [
+          ['/v8/eventloop/', '事件循环']
+        ]
       }
     ]
   }
