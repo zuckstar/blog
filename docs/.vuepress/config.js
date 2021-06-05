@@ -78,6 +78,14 @@ module.exports = {
         children: [
           ['/v8/eventloop/', '事件循环']
         ]
+      }, {
+        title: '异步I/O和异步编程',
+        children: [
+          ['/async/001/', 'NodeJS 中非阻塞 I/O、异步 I/O'],
+          ['/async/002/', 'JS异步编程有哪些方案？'],
+          ['/async/003/', '实现 Node 回调函数机制'],
+          ['/async/004/', 'Promise系列(一)：Promise 是如何消除回调地狱的?']
+        ]
       }
     ]
   }
