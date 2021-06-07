@@ -84,7 +84,11 @@ module.exports = {
           ['/async/001/', 'NodeJS 中非阻塞 I/O、异步 I/O'],
           ['/async/002/', 'JS异步编程有哪些方案？'],
           ['/async/003/', '实现 Node 回调函数机制'],
-          ['/async/004/', 'Promise系列(一)：Promise 是如何消除回调地狱的?']
+          ['/async/004/', 'Promise系列(一)：Promise 是如何消除回调地狱的?'],
+          ['/async/005/', 'Promise系列(二)：Promise 为什么要引入微任务?'],
+          ['/async/006/', 'Promise系列(三): Promise 如何实现链式调用?'],
+          ['/async/007/', 'Promise系列(四): Promise 实现 resolve、reject 和 finally'],
+          ['/async/008/', 'Promise系列(五): Promise 实现 all 和 race 方法']
         ]
       }
     ]
