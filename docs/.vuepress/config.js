@@ -88,7 +88,10 @@ module.exports = {
           ['/async/005/', 'Promise系列(二)：Promise 为什么要引入微任务?'],
           ['/async/006/', 'Promise系列(三): Promise 如何实现链式调用?'],
           ['/async/007/', 'Promise系列(四): Promise 实现 resolve、reject 和 finally'],
-          ['/async/008/', 'Promise系列(五): Promise 实现 all 和 race 方法']
+          ['/async/008/', 'Promise系列(五): Promise 实现 all 和 race 方法'],
+          ['/async/009/', '谈谈你对 Generator 以及协程的理解'],
+          ['/async/010/', '如何让 Generator 的异步代码按顺序执行完毕？'],
+          ['/async/011/', '解释一下async/await的运行机制']
         ]
       }
     ]
