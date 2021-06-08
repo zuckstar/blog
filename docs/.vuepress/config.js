@@ -91,7 +91,8 @@ module.exports = {
           ['/async/008/', 'Promise系列(五): Promise 实现 all 和 race 方法'],
           ['/async/009/', '谈谈你对 Generator 以及协程的理解'],
           ['/async/010/', '如何让 Generator 的异步代码按顺序执行完毕？'],
-          ['/async/011/', '解释一下async/await的运行机制']
+          ['/async/011/', '解释一下async/await的运行机制'],
+          ['/async/012/', 'forEach 中用 await 会产生什么问题?怎么解决这个问题？']
         ]
       }
     ]

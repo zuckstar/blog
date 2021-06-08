@@ -87,3 +87,7 @@ Ok, 现在执行权到了 test 协程手上，test 接收到父协程传来的 2
 ```
 
 总结一下，async/await 利用协程和 Promise 实现了同步方式编写异步代码的效果，其中 Generator 是对协程的一种实现，虽然语法简单，但引擎在背后做了大量的工作，我们也对这些工作做了一一的拆解。用 async/await 写出的代码也更加优雅、美观，相比于之前的 Promise 不断调用 then 的方式，语义化更加明显，相比于 co + Generator 性能更高，上手成本也更低，不愧是 JS 异步终极解决方案！
+
+## 参考
+
+[011 解释一下 async/await 的运行机制。](http://47.98.159.95/my_blog/blogs/javascript/js-async/011.html)
