@@ -64,13 +64,21 @@ module.exports = {
       {
         title: '性能优化',
         children: [
-          ['/performance/debounce&throttle/', '防抖和节流']
+          ['/performance/guide/', '001前端性能优化知识体系导读'],
+          ['/performance/webpack/', '002webpack性能调优与gzip原理'],
+          ['/performance/lazyload/', '003图片优化'],
+          ['/performance/cache/', '004浏览器缓存机制和策略'],
+          ['/performance/storage/', '005浏览器本地存储'],
+          ['/performance/cdn/', '006cdn的缓存与回源机制'],
+          ['/performance/debounce&throttle/', '007防抖和节流'],
         ]
       },
       {
         title: '浏览器',
         children: [
-          ['/browser/cors/', '跨域']
+          ['/browser/cors/', '浏览器跨域'],
+          ['/browser/xss/', 'xss攻击'],
+          ['/browser/csrf/', 'csrf攻击']
         ]
       },
       {
