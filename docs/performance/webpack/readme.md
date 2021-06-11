@@ -202,6 +202,8 @@ module.exports = {
 
 这点仍然围绕 DllPlugin 展开，可参考上文。
 
+[code spliting](https://zhuanlan.zhihu.com/p/26710831)
+
 #### 删除冗余代码
 
 Tree-Shaking：

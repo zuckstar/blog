@@ -66,7 +66,7 @@ module.exports = {
         children: [
           ['/performance/guide/', '001前端性能优化知识体系导读'],
           ['/performance/webpack/', '002webpack性能调优与gzip原理'],
-          ['/performance/lazyload/', '003图片优化'],
+          ['/performance/picture/', '003图片优化'],
           ['/performance/cache/', '004浏览器缓存机制和策略'],
           ['/performance/storage/', '005浏览器本地存储'],
           ['/performance/cdn/', '006cdn的缓存与回源机制'],
