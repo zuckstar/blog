@@ -184,10 +184,64 @@ Service Worker 是一种独立于主线程之外的 Javascript 线程。它脱�
 
 Service Worker 的生命周期包括 install、active、working 三个阶段。一旦 Service Worker 被 install，它将始终存在，只会在 active 与 working 之间切换，除非我们主动终止它。这是它可以用来实现离线存储的重要先决条件。
 
+下面我们就通过实战的方式，一起见识一下 Service Worker 如何为我们实现离线缓存（注意看注释）： 我们首先在入口文件中插入这样一段 JS 代码，用以判断和引入 Service Worker：
+
+```js
+window.navigator.serviceWorker.register('/test.js').then(
+   function () {
+      console.log('注册成功')
+    }).catch(err => {
+      console.error("注册失败")
+    })
+```
+在 test.js 中，我们进行缓存的处理。假设我们需要缓存的文件分别是 test.html,test.css 和 test.js：
+
+```
+// Service Worker会监听 install事件，我们在其对应的回调里可以实现初始化的逻辑  
+self.addEventListener('install', event => {
+  event.waitUntil(
+    // 考虑到缓存也需要更新，open内传入的参数为缓存的版本号
+    caches.open('test-v1').then(cache => {
+      return cache.addAll([
+        // 此处传入指定的需缓存的文件名
+        '/test.html',
+        '/test.css',
+        '/test.js'
+      ])
+    })
+  )
+})
+
+// Service Worker会监听所有的网络请求，网络请求的产生触发的是fetch事件，我们可以在其对应的监听函数中实现对请求的拦截，进而判断是否有对应到该请求的缓存，实现从Service Worker中取到缓存的目的
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    // 尝试匹配该请求对应的缓存值
+    caches.match(event.request).then(res => {
+      // 如果匹配到了，调用Server Worker缓存
+      if (res) {
+        return res;
+      }
+      // 如果没匹配到，向服务端发起这个资源请求
+      return fetch(event.request).then(response => {
+        if (!response || response.status !== 200) {
+          return response;
+        }
+        // 请求成功的话，将请求缓存起来。
+        caches.open('test-v1').then(function(cache) {
+          cache.put(event.request, response);
+        });
+        return response.clone();
+      });
+    })
+  );
+});
+
+```
 试试吧:
+
 https://blog.csdn.net/weixin_41796631/article/details/89314876
 
-PS：大家注意 Server Worker 对协议是有要求的，必须以 https 协议为前提。
+PS：大家注意 Server Worker 对协议是有要求的，必须以 https 协议为前提，本地调试的话用 localhost 和 127.0.0.1 的 ip 地址也是可以的。
 
 ## Push Cache
 
