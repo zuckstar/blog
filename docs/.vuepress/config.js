@@ -69,7 +69,7 @@ module.exports = {
           ['/performance/picture/', '003图片优化'],
           ['/performance/cache/', '004浏览器缓存机制和策略'],
           ['/performance/storage/', '005浏览器本地存储'],
-          ['/performance/cdn/', '006cdn的缓存与回源机制'],
+          ['/performance/rendering/', '006服务端渲染的探索与实践'],
           ['/performance/debounce&throttle/', '007防抖和节流'],
         ]
       },

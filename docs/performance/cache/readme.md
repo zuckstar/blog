@@ -196,7 +196,7 @@ window.navigator.serviceWorker.register('/test.js').then(
 ```
 在 test.js 中，我们进行缓存的处理。假设我们需要缓存的文件分别是 test.html,test.css 和 test.js：
 
-```
+```js
 // Service Worker会监听 install事件，我们在其对应的回调里可以实现初始化的逻辑  
 self.addEventListener('install', event => {
   event.waitUntil(
