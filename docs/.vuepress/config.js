@@ -70,7 +70,9 @@ module.exports = {
           ['/performance/cache/', '004浏览器缓存机制和策略'],
           ['/performance/storage/', '005浏览器本地存储'],
           ['/performance/rendering/', '006服务端渲染的探索与实践'],
-          ['/performance/debounce&throttle/', '007防抖和节流'],
+          ['/performance/operating/', '007浏览器运行机制'],
+          ['/performance/DOM/', '008DOM优化原理与基本实践'],
+          ['/performance/debounce&throttle/', '009防抖和节流'],
         ]
       },
       {
