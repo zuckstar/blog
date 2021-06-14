@@ -78,7 +78,10 @@ module.exports = {
           ['/performance/rendering/', '006服务端渲染的探索与实践'],
           ['/performance/operating/', '007浏览器运行机制'],
           ['/performance/DOM/', '008DOM优化原理与基本实践'],
-          ['/performance/debounce&throttle/', '009防抖和节流'],
+          ['/performance/eventloop/', '009Event Loop 与异步更新策略'],
+          ['/performance/reflow&repaint/', '010回流和重绘'],
+          ['/performance/debounce&throttle/', '011防抖和节流'],
+          ['/performance/performanceAPI/', '012性能检测篇: PerformanceAPI']
         ]
       },
       {
