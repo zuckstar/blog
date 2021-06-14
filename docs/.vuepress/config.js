@@ -54,6 +54,12 @@ module.exports = {
         ]
       },
       {
+        title: 'JS编程练习题',
+        children: [
+          ['/js/programming/001/', '练习题(一)']
+        ]
+      },
+      {
         title: 'ES6新特性',
         children: [
           ['/es6/let/', 'let 和 const'],
