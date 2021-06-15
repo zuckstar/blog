@@ -85,11 +85,12 @@ module.exports = {
         ]
       },
       {
-        title: '浏览器',
+        title: '浏览器安全',
         children: [
           ['/browser/cors/', '浏览器跨域'],
           ['/browser/xss/', 'xss攻击'],
-          ['/browser/csrf/', 'csrf攻击']
+          ['/browser/csrf/', 'csrf攻击'],
+          ['/browser/other/', '其他攻击']
         ]
       },
       {
