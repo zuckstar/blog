@@ -1,6 +1,5 @@
 # DOM 优化原理与基本实践
 
-
 ## DOM 为什么这么慢
 
 JS 是很快的，在 JS 中修改 DOM 对象也是很快的。在JS的世界里，一切是简单的、迅速的。但 DOM 操作并非 JS 一个人的独舞，而是两个模块之间的协作。
@@ -21,9 +20,9 @@ JS 引擎和渲染引擎（浏览器内核）是独立实现的。当我们用 J
 
 ![5](./5.jpg)
 
-- 回流：当我们对 DOM 的修改引发了 DOM 几何尺寸的变化（比如修改元素的宽、高或隐藏元素等）时，浏览器需要重新计算元素的几何属性（其他元素的几何属性和位置也会因此受到影响），然后再将计算的结果绘制出来。这个过程就是回流（也叫重排）。
+* 回流：当我们对 DOM 的修改引发了 DOM 几何尺寸的变化（比如修改元素的宽、高或隐藏元素等）时，浏览器需要重新计算元素的几何属性（其他元素的几何属性和位置也会因此受到影响），然后再将计算的结果绘制出来。这个过程就是回流（也叫重排）。
 
-- 重绘：当我们对 DOM 的修改导致了样式的变化、却并未影响其几何属性（比如修改了颜色或背景色）时，浏览器不需重新计算元素的几何属性、直接为该元素绘制新的样式（跳过了上图所示的回流环节）。这个过程叫做重绘。
+* 重绘：当我们对 DOM 的修改导致了样式的变化、却并未影响其几何属性（比如修改了颜色或背景色）时，浏览器不需重新计算元素的几何属性、直接为该元素绘制新的样式（跳过了上图所示的回流环节）。这个过程叫做重绘。
 
 由此我们可以看出，重绘不一定导致回流，回流一定会导致重绘。硬要比较的话，回流比重绘做的事情更多，带来的开销也更大。但这两个说到底都是吃性能的，所以都不是什么善茬。我们在开发中，要从代码层面出发，尽可能把回流和重绘的次数最小化。
 
@@ -34,19 +33,20 @@ JS 引擎和渲染引擎（浏览器内核）是独立实现的。当我们用 J
 不要频繁地与 DOM 做交互，若有重复操作，用 JS 计算后再让 DOM 就行修改
 
 bad:
+
 ```js
-for(var count=0;count<10000;count++){ 
-  document.getElementById('container').innerHTML+='<span>我是一个小测试</span>'
-} 
+for (var count = 0; count < 10000; count++) {
+  document.getElementById('container').innerHTML += '<span>我是一个小测试</span>'
+}
 ```
 
 good:
 
 ```js
 let container = document.getElementById('container')
-for(let count=0;count<10000;count++){ 
+for (let count = 0; count < 10000; count++) {
   container.innerHTML += '<span>我是一个小测试</span>'
-} 
+}
 ```
 
 better:
@@ -54,10 +54,10 @@ better:
 ```js
 let container = document.getElementById('container')
 let content = ''
-for(let count=0;count<10000;count++){ 
+for (let count = 0; count < 10000; count++) {
   // 先对内容进行操作
   content += '<span>我是一个小测试</span>'
-} 
+}
 // 内容处理好了,最后再触发DOM的更改
 container.innerHTML = content
 ```
@@ -70,7 +70,7 @@ container.innerHTML = content
 let container = document.getElementById('container')
 // 创建一个DOM Fragment对象作为容器
 let content = document.createDocumentFragment()
-for(let count=0;count<10000;count++){
+for (let count = 0; count < 10000; count++) {
   // span此时可以通过DOM API去创建
   let oSpan = document.createElement("span")
   oSpan.innerHTML = '我是一个小测试'
