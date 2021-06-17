@@ -3,10 +3,9 @@
 ### 手写 bind 函数
 
 ```js
+Function.prototype.bind = function() {
 
-Function.prototype.bind = function () {
-
-  if(typeof this !== 'function') {
+  if (typeof this !== 'function') {
     throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable')
   }
 
@@ -16,20 +15,20 @@ Function.prototype.bind = function () {
 
   const self = this
 
-  return function () {
+  return function() {
     const innerArgs = arguments
 
     return self.apply(t, args.concat(innerArgs))
   }
 }
-
 ```
+
 ### 手写 new 函数
 
 ```js
-function newFunc (ctor, ...args) {
+function newFunc(ctor, ...args) {
 
-  if(typeof this !== 'function') {
+  if (typeof this !== 'function') {
     throw new TypeError('newOperator function the first param must be a function')
   }
 
@@ -44,13 +43,15 @@ function newFunc (ctor, ...args) {
   return isObject ? res : obj
 }
 ```
+
 ### 防抖
+
 ```js
 // 普通版
 function debounce(fn, delay) {
   let timer = null
 
-  return function (...args) {
+  return function(...args) {
     let context = this
 
     if (timer) {
@@ -68,7 +69,7 @@ function debounceImmediate(fn, delay) {
   let timer = null
   let flag = true
 
-  return function (...args) {
+  return function(...args) {
     let context = this
 
     if (flag) {
@@ -86,13 +87,14 @@ function debounceImmediate(fn, delay) {
   }
 }
 ```
+
 ### 节流
 
 ```js
-function throttle (fn, delay) {
+function throttle(fn, delay) {
   let flag = false
 
-  return function (...args) {
+  return function(...args) {
     let context = this
 
     if (flag) return;
@@ -107,9 +109,9 @@ function throttle (fn, delay) {
 }
 
 // 立即执行版
-function throttleImmediate (fn, delay) {
+function throttleImmediate(fn, delay) {
   let flag = true
-  return function (...args) {
+  return function(...args) {
     let context = this
 
     if (flag) {
@@ -122,5 +124,67 @@ function throttleImmediate (fn, delay) {
       }, delay);
     }
   }
+}
+```
+
+### 数组扁平化
+
+字符串处理法
+
+```js
+function flatter(arr) {
+  let str = JSON.stringify(arr)
+
+  str = str.replace(/(\[|\])/g, '')
+
+  return JSON.parse(`[${str}]`)
+}
+```
+
+flat 法
+
+```js
+array.flat(Infinity)
+```
+
+递归法
+
+```js
+function flatter(arr) {
+  let res = []
+
+  for (let item of arr) {
+    if (Array.isArray(item)) {
+      let _ary = flatter2(item)
+      res.push(..._ary)
+    } else {
+      res.push(item)
+    }
+  }
+
+  return res
+}
+```
+
+### URL 拆解
+
+```js
+function getParams(url) {
+  let search = url.split('?')[1]
+  let arr = search ? search.split('#')[0].split('&') : []
+
+  const res = {}
+
+  arr.forEach(e => {
+    const [key, value] = e.split('=')
+
+    if (value) {
+      res[key] = value
+    } else {
+      res[key] = ''
+    }
+  });
+
+  return res
 }
 ```
