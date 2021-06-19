@@ -168,6 +168,8 @@ function flatter(arr) {
 
 ### URL 拆解
 
+URL拆解1（实现一个函数，可以对 url 中的 query 部分做拆解，返回一个 key: value 形式的 object ）：
+
 ```js
 function getParams(url) {
   let search = url.split('?')[1]
@@ -184,6 +186,37 @@ function getParams(url) {
       res[key] = ''
     }
   });
+
+  return res
+}
+```
+
+URL拆解2：
+
+实现一个 parseParam 函数，将 url 转化为指定结果：
+
+1. 重复出现的 key 要组装成数组，能被转成数字的就转成数字类型
+2. 中文需解码
+3. 未指定值的 key 与约定为 true
+
+```JS
+function parseParam(url) {
+  let search = url.split('?')[1]
+  let arr = search ? search.split('#')[0].split('&') : []
+
+  const res = {}
+
+  arr.forEach(e => {
+    const [key, value] = e.split('=')
+
+    if (value == undefined) {
+      res[key] = true
+    } else if (key in res) {
+      Array.isArray(res[key]) ? res[key].push(value) : res[key] = [res[key], value]
+    } else {
+      res[key] = decodeURI(value)
+    }
+  })
 
   return res
 }

@@ -124,6 +124,10 @@ module.exports = {
           ['/networkprotocol/tcp/003/', '半连接队列和 SYN Flood 攻击是什么关系？'],
           ['/networkprotocol/tcp/004/', 'TCP 报文头部的字段介绍'],
           ['/networkprotocol/tcp/005/', '谈谈 TCP 快速打开的原理(TFO)'],
+          ['/networkprotocol/tcp/006/', 'TCP报文中的时间戳的作用'],
+          ['/networkprotocol/tcp/007/', 'TCP流量控制'],
+          ['/networkprotocol/tcp/008/', 'TCP拥塞控制'],
+          ['/networkprotocol/tcp/009/', 'Negle 算法和延迟确认'],
         ]
       },
       {
