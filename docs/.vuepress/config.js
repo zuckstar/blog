@@ -133,7 +133,12 @@ module.exports = {
       {
         title: 'HTTP协议',
         children: [
-          ['/networkprotocol/http/001/', 'http协议']
+          ['/networkprotocol/http/001/', 'http 的报文结构'],
+          ['/networkprotocol/http/002/', 'http 的请求方法'],
+          ['/networkprotocol/http/003/', '如何理解 URI'],
+          ['/networkprotocol/http/004/', 'http 状态码'],
+          ['/networkprotocol/http/005/', 'http 协议有哪些特点和去缺点'],
+          ['/networkprotocol/http/006/', 'accept 系列字段解析'],
         ]
       }
     ]
