@@ -1,6 +1,6 @@
 # JS 编程练习题（一）
 
-### 手写 bind 函数
+### 1. 手写 bind 函数
 
 ```js
 Function.prototype.bind = function() {
@@ -11,19 +11,19 @@ Function.prototype.bind = function() {
 
   const args = Array.prototype.slice(arguments)
 
-  const t = args.shift()
+  const t = args.shift() // 拿到 bind 的对象
 
   const self = this
 
   return function() {
     const innerArgs = arguments
 
-    return self.apply(t, args.concat(innerArgs))
+    return self.apply(t, args.concat(innerArgs)) // 执行
   }
 }
 ```
 
-### 手写 new 函数
+### 2. 手写 new 函数
 
 ```js
 function newFunc(ctor, ...args) {
@@ -44,7 +44,7 @@ function newFunc(ctor, ...args) {
 }
 ```
 
-### 防抖
+### 3. 防抖
 
 ```js
 // 普通版
@@ -88,7 +88,7 @@ function debounceImmediate(fn, delay) {
 }
 ```
 
-### 节流
+### 4. 节流
 
 ```js
 function throttle(fn, delay) {
@@ -127,7 +127,7 @@ function throttleImmediate(fn, delay) {
 }
 ```
 
-### 数组扁平化
+### 5. 数组扁平化
 
 字符串处理法
 
@@ -166,7 +166,7 @@ function flatter(arr) {
 }
 ```
 
-### URL 拆解
+### 6. URL 拆解
 
 URL拆解1（实现一个函数，可以对 url 中的 query 部分做拆解，返回一个 key: value 形式的 object ）：
 
@@ -220,4 +220,40 @@ function parseParam(url) {
 
   return res
 }
+```
+
+### 7. 手写快排
+
+```js
+const quickSort = (arr, left, right) => {
+  // 指针遍历结束，或者指向同一个元素，则直接返回当前数组
+  if(left >= right) {
+    return arr
+  }
+
+  let i = left,
+      j = right,
+      pivot = arr[left] // 基准值
+
+  while(i < j) {
+    while(i < j && arr[j] >= pivot) j--  // 从右向左，当前指针元素大于基准值则左移
+    while(i < j && arr[i] <= pivot) i++  // 从左向右，当前指针元素小于基准值则右移
+
+    ;[arr[i], arr[j]] = [arr[j], arr[i]]
+  }
+
+  // 基准值归位
+  arr[left] = arr[i]
+  arr[i] = pivot
+
+  quickSort(arr, left, i - 1)
+  quickSort(arr, i+1, right)
+  return arr
+}
+```
+
+### 8. 将 HTTP header 转换成 js 对象
+
+```js
+
 ```
