@@ -139,6 +139,13 @@ module.exports = {
           ['/networkprotocol/http/004/', 'http 状态码'],
           ['/networkprotocol/http/005/', 'http 协议有哪些特点和去缺点'],
           ['/networkprotocol/http/006/', 'accept 系列字段解析'],
+          ['/networkprotocol/http/007/', '对于定长和不定长的数据，HTTP 是怎么传输的？'],
+          ['/networkprotocol/http/008/', 'HTTP 如何处理大文件的传输？'],
+          ['/networkprotocol/http/009/', 'HTTP 中如何处理表单数据的提交？'],
+          ['/networkprotocol/http/010/', 'HTTP1.1 如何解决 HTTP 的队头阻塞问题？'],
+          ['/networkprotocol/http/011/', '如何理解 HTTP 代理？'],
+          ['/networkprotocol/http/012/', 'HTTPS 和 TLS'],
+          ['/networkprotocol/http/013/', 'HTTP2'],
         ]
       }
     ]
