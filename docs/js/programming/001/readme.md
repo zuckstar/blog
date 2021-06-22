@@ -255,5 +255,56 @@ const quickSort = (arr, left, right) => {
 ### 8. 将 HTTP header 转换成 js 对象
 
 ```js
+const solution = (s) => {
+  let res = {}
 
+  let arr = s.split('\n')
+
+  arr.forEach(element => {
+    let tmp = element.split(': ');
+    res[tmp[0]] = tmp[1]
+  });
+
+  return res
+}
+```
+
+### 9. 冒泡排序
+
+```js
+function bubbleSort (ary) {
+  let len = ary.length
+
+  for (let i = 0; i < len - 1; i++) {
+    for (let j = 0; j < len - i - 1; j++) {
+      if (ary[j] > ary[j + 1]) { // 因为这里是 j+1 所以上述的终止条件 len - 1 就足够
+        [ary[j], ary[j+1]] = [ary[j+1], ary[j]]
+      }
+    }
+  }
+  return ary
+}
+```
+
+### 10. 选择排序
+
+```js
+  let len = ary.length
+
+  for (let i = 0; i < len; i++) {
+    let idx = i
+    
+    // 每次找到一个最小值
+    for (let j = i + 1; j < len; j++) {
+      if (ary[idx] > ary[j]) {
+        idx = j
+      }
+    }
+
+    [ary[idx], ary[i]] = [ary[i], ary[idx]]
+
+  }
+
+  return ary
+}
 ```
