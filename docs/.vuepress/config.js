@@ -56,7 +56,8 @@ module.exports = {
       {
         title: 'JS编程练习题',
         children: [
-          ['/js/programming/001/', '练习题(一)']
+          ['/js/programming/001/', '练习题(一)'],
+          ['/js/programming/002/', '练习题(二)'],
         ]
       },
       {
@@ -152,6 +153,8 @@ module.exports = {
         title: 'Vue',
         children: [
           ['/vue/001/', 'Vue.js 运行机制全局概览'],
+          ['/vue/002/', '响应式系统的基本原理'],
+          ['/vue/003/', '响应式系统的依赖收集追踪原理']
         ]
       },
       {
