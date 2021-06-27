@@ -18,13 +18,23 @@ class Dep {
 }
 
 class Watcher {
-  constructor() {
+  constructor(obj, key, cb) {
     // new Watcher 对象的时候，把该对象赋值给 Dep.target, 在 get 中会用到
     Dep.target = this
+
+    this.cb = cb
+    this.obj = obj
+    this.key = key
+    this.value = obj[key] // 触发 defineProperty 的 get 方法
+
+    // Dep 添加 watcher 完成
+    Dep.target = null 
   }
 
   update () {
-    console.log('更新视图啦')
+    this.value = this.obj[this.key]
+      
+    this.cb(this.value)
   }
 }
 
@@ -46,7 +56,6 @@ function defineReactive (obj, key, val) {
     set: function reactiveSetter(newVal) {
       if (newVal === val) return;
       val = newVal
-
        /* 在set的时候触发dep的notify来通知所有的Watcher对象更新视图 */
       dep.notify()
     }
@@ -69,10 +78,12 @@ class Vue {
     observer(this._data)
 
     /* 新建一个Watcher观察者对象，这时候Dep.target会指向这个Watcher对象 */
-    new Watcher()
+    new Watcher(this._data, 'test', (value) => {
+      console.log('test 视图更新啦')
+    })
 
-    /* 在这里模拟render的过程，为了触发test属性的get函数 */
-    console.log('render~', this._data.test);
+    /* 在这里模拟render的过程，为了触发test属性的 set 函数 */
+    this._data.test = 'abc'
   }
 }
 
