@@ -61,6 +61,14 @@ module.exports = {
         ]
       },
       {
+        title: 'JS常见设计模式',
+        children: [
+          ['/design-pattern/001/', '基础知识'],
+          ['/design-pattern/002/', '单例模式'],
+          ['/design-pattern/003/', '策略模式']
+        ]
+      },
+      {
         title: 'ES6新特性',
         children: [
           ['/es6/let/', 'let 和 const'],
