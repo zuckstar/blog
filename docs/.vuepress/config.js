@@ -157,18 +157,21 @@ module.exports = {
           ['/networkprotocol/http/013/', 'HTTP2'],
         ]
       },
-      // {
-      //   title: 'Vue',
-      //   children: [
-      //     ['/vue/001/', 'Vue.js 运行机制全局概览'],
-      //     ['/vue/002/', '响应式系统的基本原理'],
-      //     ['/vue/003/', '响应式系统的依赖收集追踪原理'],
-      //     ['/vue/004/', '实现 Virtual DOM 下的一个 VNode 节点'],
-      //     ['/vue/005/', 'template 模板是怎样通过 Compile 编译的'],
-      //     ['/vue/006/', '数据状态更新时的差异 diff 及 patch 机制'],
-      //     ['/vue/007/', '批量异步更新策略及 nextTick 原理'],
-      //   ]
-      // },
+      {
+        title: 'Vue',
+        children: [
+          ['/vue/001/', 'Vue.js 运行机制全局概览'],
+          ['/vue/002/', '响应式系统的基本原理'],
+          ['/vue/003/', '响应式系统的依赖收集追踪原理'],
+          ['/vue/004/', '实现 Virtual DOM 下的一个 VNode 节点'],
+          ['/vue/005/', 'template 模板是怎样通过 Compile 编译的'],
+          ['/vue/006/', '数据状态更新时的差异 diff 及 patch 机制'],
+          ['/vue/007/', '批量异步更新策略及 nextTick 原理'],          
+          ['/vue/008/', 'Vuex 状态管理的工作原理'],
+          ['/vue/009/', 'Vue3 Diff算法'],
+          ['/vue/010/', 'Vue3 响应式原理']
+        ]
+      },
       {
         title: 'React',
         children: [

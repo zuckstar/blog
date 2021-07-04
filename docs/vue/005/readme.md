@@ -124,7 +124,7 @@ function advance (n) {
 
 调用 advance 函数
 
-```js
+```
 advance(43);
 ```
 
@@ -161,7 +161,7 @@ parseHTML 会用 while 来循环解析 template ，用正则在匹配到标签�
 
 ### parseStartTag
 
-我们来写一个 parseStartTag 函数，用来解析起始标签（"<div :class="c" class="demo" v-if="isShow">"部分的内容）。
+我们来写一个 parseStartTag 函数，用来解析起始标签`"<div :class="c" class="demo" v-if="isShow">"`部分的内容
 
 ```js
 function parseStartTag () {
@@ -211,7 +211,7 @@ if (end) {
 }
 ```
 
-## stack
+### stack
 
 此外，我们需要维护一个 stack 栈来保存已经解析好的标签头，这样我们可以根据在解析尾部标签的时候得到所属的层级关系以及父标签。同时我们定义一个 currentParent 变量用来存放当前标签的父标签节点的引用， root 变量用来指向根标签节点。
 
@@ -390,7 +390,7 @@ function processIf (el) {
 }
 ```
 
-### optimize
+## optimize
 
 optimize 主要作用就跟它的名字一样，用作「优化」。
 
