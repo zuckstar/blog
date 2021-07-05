@@ -169,13 +169,17 @@ module.exports = {
           ['/vue/007/', '批量异步更新策略及 nextTick 原理'],          
           ['/vue/008/', 'Vuex 状态管理的工作原理'],
           ['/vue/009/', 'Vue3 Diff算法'],
-          ['/vue/010/', 'Vue3 响应式原理']
+          ['/vue/010/', 'Vue3 响应式原理'],
+          ['/vue/011/', 'Vue2/3 响应式对数组的处理']
         ]
       },
       {
         title: 'React',
         children: [
-          
+          ['/react/000/', 'React 和 Vue 的异同点'],
+          ['/react/001/', 'React 生命周期'],
+          ['/react/002/', 'React diff 算法'],
+          ['/react/003/', 'React hooks 和 class 组件'],
         ]
       }
     ]
