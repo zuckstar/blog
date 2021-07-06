@@ -161,3 +161,34 @@ function myInstanceOf(obj, ctor) {
   }
 } 
 ```
+
+### 5. 实现一个简易的 Promise
+
+```js
+function Promise(fn) {
+  this.cbs = []
+
+  const resolve = (value) => {
+    this.data = value
+    this.cbs.forEach((cb)=>cb(value))
+  }
+
+  fn(resolve)
+}
+
+Promise.prototype.then = (onResolve) => {
+  return new Promise((resolve)=>{
+    this.cbs.push(()=>{
+      let res = onResolve(this.data)
+
+      if(res instanceof Promise) {
+        res.then(resolve)
+      } else {
+        resolve(res)
+      }
+    })
+  }) 
+}
+
+
+```

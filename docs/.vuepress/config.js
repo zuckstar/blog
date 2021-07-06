@@ -69,6 +69,12 @@ module.exports = {
         ]
       },
       {
+        title: 'JS高阶',
+        children: [
+          ['/js-senior/001', '异常处理']
+        ]
+      },
+      {
         title: 'ES6新特性',
         children: [
           ['/es6/let/', 'let 和 const'],
