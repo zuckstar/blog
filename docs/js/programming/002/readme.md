@@ -192,3 +192,115 @@ Promise.prototype.then = (onResolve) => {
 
 
 ```
+
+### 6. generator 与异步
+
+generator 保证异步函数按序执行
+
+```js
+function calTimes(i) {
+  return function (callback) {
+    setTimeout(() => {
+      console.log(i)
+      callback()
+    }, 1000);
+  } 
+}
+
+function* gen () {
+  yield calTimes(1)
+  yield calTimes(2)
+  yield calTimes(3)
+}
+
+var g = gen() // 没有 new
+ 
+// 回调嵌套，按序执行
+g.next().value(() => {
+  g.next().value(() => {
+    g.next().value(() => { })
+  })
+})
+```
+
+使用递归run函数来自动执行
+
+```js
+function run (gen) {
+  const next = () => {
+    const res = gen.next()
+    if (res.done) return true // 停止
+    res.value(next) // 传递回调函数，进行递归
+  }
+  next()
+}
+
+run(g)
+```
+
+Promise 版本
+
+```js
+function callName(name) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log(name)
+      resolve(name)
+    }, 1000);
+  })
+}
+
+// 事先定义好异步函数执行的顺序
+function* gen () {
+  yield callName("a")
+  yield callName("b")
+  yield callName("c")
+}
+
+const g = gen()
+
+
+function run (gen) {
+  const next = (value) => {
+    console.log(value) // 拿到上次异步执行的结果
+    const res = gen.next()
+    if (res.done) return // 停止
+    res.value.then((value) => {
+      next(value) // resovle函数
+    }) // 传递回调函数，进行递归
+  }
+  next()
+}
+
+run(g)
+```
+
+### 7. Promise.all 的实现
+
+```js
+Promise.prototype.all = function (arrs) {
+  return new Promise((resolve, reject) => { //外层返回一个新的 promise 对象
+    const res = []
+    const length = arrs.length
+
+    let nums = 0
+
+    const innerResolved = (data, index) => {
+      result[index] = data // 存储结果
+      nums++ // 增加计数
+
+      if (nums === length) {
+        resolve(res)
+      }
+    }
+
+    for (let i = 0; i < length; i++) {
+      Promise.resolve(arr[i]).then((data) => { // 对数组中的变量进行包装
+        innerResolved(data, i)
+      }).catch(err => {
+        reject(err) // 有错的话直接 reject
+      })
+    }
+  })
+}
+```

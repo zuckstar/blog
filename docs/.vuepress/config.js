@@ -71,7 +71,7 @@ module.exports = {
       {
         title: 'JS高阶',
         children: [
-          ['/js-senior/001', '异常处理']
+          ['/js-senior/001/', '异常处理']
         ]
       },
       {

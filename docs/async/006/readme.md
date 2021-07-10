@@ -5,7 +5,41 @@
 ## Promises/A+ 规范
 
 要了解一个 Promise 是如何实现，要先了解 Promise 是什么，以及它拥有哪些功能，内容可参考 Promises/A+ 规范的官方文档：
-https://promisesaplus.com/
+
+[英文原版](https://promisesaplus.com/)
+
+[中文](https://zhuanlan.zhihu.com/p/143204897)
+
+
+
+核心三件套：
+
+
+1. 回调函数延迟绑定（利用 then 方法）
+
+2. 返回值穿透（链式调用）
+
+3. 错误冒泡
+
+
+Promise 的状态：
+
+promise必须是这三个状态中的一种：等待态pending,解决态fulfilled或拒绝态rejected
+
+且一旦由 pending 转成 fulfilled 或者 rejected 态，promise 状态就不再改变。
+
+
+then 方法：
+
+Promise必须提供一个then方法来访问当前或最终的值或原因。
+
+Promise的then方法接受俩个参数：
+
+promise.then(onFulfilled, onRejected)
+
+then 必须返回一个 promise 对象。
+
+
 
 ## 实现精简版的 Promise （20 行）
 
