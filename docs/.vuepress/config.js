@@ -71,7 +71,8 @@ module.exports = {
       {
         title: 'JS高阶',
         children: [
-          ['/js-senior/001/', '异常处理']
+          ['/js-senior/001/', '异常处理'],
+          ['/js-senior/002/', '插件机制（中间件）']
         ]
       },
       {
@@ -186,6 +187,12 @@ module.exports = {
           ['/react/001/', 'React 生命周期'],
           ['/react/002/', 'React diff 算法'],
           ['/react/003/', 'React hooks 和 class 组件'],
+        ]
+      },
+      {
+        title: 'Nodejs',
+        children: [
+          ['/react/001/', '001 进程和线程']
         ]
       }
     ]
