@@ -22,7 +22,7 @@ class Vuex {
     })
   }
 
-  subscribeAction (subscriber) {
+subscribeAction (subscriber) {
     this._actionSubscribers.push(subscriber)
   }
 }

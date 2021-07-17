@@ -177,7 +177,8 @@ module.exports = {
           ['/vue/008/', 'Vuex 状态管理的工作原理'],
           ['/vue/009/', 'Vue3 Diff算法'],
           ['/vue/010/', 'Vue3 响应式原理'],
-          ['/vue/011/', 'Vue2/3 响应式对数组的处理']
+          ['/vue/011/', 'Vue2/3 响应式对数组的处理'],
+          ['/vue/012/', '012 手写 Vuex 核心原理']
         ]
       },
       {
@@ -192,7 +193,16 @@ module.exports = {
       {
         title: 'Nodejs',
         children: [
-          ['/react/001/', '001 进程和线程']
+          ['/nodejs/001/', '001 进程和线程']
+        ]
+      },
+      {
+        title: 'Webpack',
+        children: [
+          ['/webpack/001/', '001 webpack 核心原理'],
+          ['/webpack/002/', '002 其他打包工具对比'],
+          ['/webpack/003/', '003 实现自制的plugin'],
+          ['/webpack/003/', '004 实现自制的loader'],
         ]
       }
     ]

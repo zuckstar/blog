@@ -4,7 +4,7 @@
 
 当我们使用 Vue.js 来开发一个单页应用时，经常会遇到一些组件间共享的数据或状态，或是需要通过 props 深层传递的一些数据。在应用规模较小的时候，我们会使用 props、事件等常用的父子组件的组件间通信方法，或者是通过事件总线来进行任意两个组件的通信。但是当应用逐渐复杂后，问题就开始出现了，这样的通信方式会导致数据流异常地混乱。
 
-![1](1.jpg)
+![1](./1.jpg)
 
 这个时候，我们就需要用到我们的状态管理工具 Vuex 了。Vuex 是一个专门为 Vue.js 框架设计的、专门用来对于 Vue.js 应用进行状态管理的库。它借鉴了 Flux、redux 的基本思想，将状态抽离到全局，形成一个 Store。因为 Vuex 内部采用了 new Vue 来将 Store 内的数据进行「响应式化」，所以 Vuex 是一款利用 Vue 内部机制的库，与 Vue 高度契合，与 Vue 搭配使用显得更加简单高效，但缺点是不能与其他的框架（如 react）配合使用。
 
@@ -105,7 +105,11 @@ Vue.prototype.globalData = globalData;
 <div>{{globalData.d}}</div>
 ```
 
-上述代码在全局有一个 globalData，它被传入一个 Vue 对象的 data 中，之后在任意 Vue 模板中对该变量进行展示，因为此时 globalData 已经在 Vue 的 prototype 上了所以直接通过 this.prototype 访问，也就是在模板中的 {{globalData.d}}。此时，setTimeout 在 1s 之后将 globalData.d 进行修改，我们发现模板中的 globalData.d 发生了变化。其实上述部分就是 Vuex 依赖 Vue 核心实现数据的“响应式化”。
+```html
+上述代码在全局有一个 `globalData`，它被传入一个 Vue 对象的 data 中，
+之后在任意 Vue 模板中对该变量进行展示，因为此时 `globalData` 已经在 Vue 的 prototype 上了所以直接通过 `this.prototype` 访问，
+也就是在模板中的 `{{globalData.d}}`。此时，setTimeout 在 1s 之后将 `globalData.d` 进行修改，我们发现模板中的 `globalData.d` 发生了变化。其实上述部分就是 Vuex 依赖 Vue 核心实现数据的“响应式化”。
+```
 
 讲完了 Vuex 最核心的通过 Vue 进行数据的「响应式化」，接下来我们再来介绍两个 Store 的 API。
 
