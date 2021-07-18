@@ -706,6 +706,13 @@ function resolvePromise(bridgePromise, x, resolve, reject) {
 }
 ```
 
+## 测试
+
+```js
+npm i -g promises-aplus-tests
+promises-aplus-tests Promise.js
+```
+
 ## 参考
 
 [最简实现 Promise，支持异步链式调用（20 行）](https://juejin.cn/post/6844904094079926286)
@@ -713,3 +720,5 @@ function resolvePromise(bridgePromise, x, resolve, reject) {
 [实现 Promise](http://47.98.159.95/my_blog/blogs/javascript/js-async/006.html)
 
 [实现 Promise2](https://blog.csdn.net/qq_18864907/article/details/90050274?spm=1001.2014.3001.5501)
+
+[Promise A+](https://www.jianshu.com/p/459a856c476f)
