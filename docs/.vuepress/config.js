@@ -10,8 +10,8 @@ module.exports = {
         children: [
           ['/html/features/', 'HTML5 新特性'],
           ['/html/semantic/', 'HTML5 语义化'],
-          ['/html/others/', 'HTML 其他']
-        ]
+          ['/html/others/', 'HTML 其他'],
+        ],
       },
       {
         title: 'CSS',
@@ -19,8 +19,8 @@ module.exports = {
           ['/css/box-model/', '盒子模型'],
           ['/css/bfc/', '什么是BFC?'],
           ['/css/center/', '居中大法'],
-          ['/css/flex/', 'flex 布局']
-        ]
+          ['/css/flex/', 'flex 布局'],
+        ],
       },
       {
         title: 'JS基础',
@@ -35,8 +35,8 @@ module.exports = {
           ['/js/call&apply/', 'call和apply函数'],
           ['/js/bind/', 'bind函数'],
           ['/js/new/', '模拟实现 new 操作符'],
-          ['/js/event/', '事件']
-        ]
+          ['/js/event/', '事件'],
+        ],
       },
       {
         title: 'JS数组',
@@ -51,37 +51,38 @@ module.exports = {
           ['/js/array/filter/', 'filter方法'],
           ['/js/array/push&pop/', 'push&pop方法'],
           ['/js/array/sort/', 'sort方法'],
-        ]
+        ],
       },
       {
         title: 'JS编程练习题',
         children: [
           ['/js/programming/001/', '练习题(一)'],
           ['/js/programming/002/', '练习题(二)'],
-        ]
+        ],
       },
       {
         title: 'JS常见设计模式',
         children: [
           ['/design-pattern/001/', '基础知识'],
           ['/design-pattern/002/', '单例模式'],
-          ['/design-pattern/003/', '策略模式']
-        ]
+          ['/design-pattern/003/', '策略模式'],
+          ['/design-pattern/004/', '代理模式'],
+        ],
       },
       {
         title: 'JS高阶',
         children: [
           ['/js-senior/001/', '异常处理'],
-          ['/js-senior/002/', '插件机制（中间件）']
-        ]
+          ['/js-senior/002/', '插件机制（中间件）'],
+        ],
       },
       {
         title: 'ES6新特性',
         children: [
           ['/es6/let/', 'let 和 const'],
           ['/es6/iterator/', '迭代器'],
-          ['/es6/symbol/', 'Symbol']
-        ]
+          ['/es6/symbol/', 'Symbol'],
+        ],
       },
       {
         title: '性能优化',
@@ -97,8 +98,8 @@ module.exports = {
           ['/performance/eventloop/', '009Event Loop 与异步更新策略'],
           ['/performance/reflow&repaint/', '010回流和重绘'],
           ['/performance/debounce&throttle/', '011防抖和节流'],
-          ['/performance/performanceAPI/', '012性能检测篇: PerformanceAPI']
-        ]
+          ['/performance/performanceAPI/', '012性能检测篇: PerformanceAPI'],
+        ],
       },
       {
         title: '浏览器安全',
@@ -106,14 +107,12 @@ module.exports = {
           ['/browser/cors/', '浏览器跨域'],
           ['/browser/xss/', 'xss攻击'],
           ['/browser/csrf/', 'csrf攻击'],
-          ['/browser/other/', '其他攻击']
-        ]
+          ['/browser/other/', '其他攻击'],
+        ],
       },
       {
         title: 'V8引擎',
-        children: [
-          ['/v8/eventloop/', '事件循环']
-        ]
+        children: [['/v8/eventloop/', '事件循环']],
       },
       {
         title: '异步I/O和异步编程',
@@ -124,27 +123,36 @@ module.exports = {
           ['/async/004/', 'Promise系列(一)：Promise 是如何消除回调地狱的?'],
           ['/async/005/', 'Promise系列(二)：Promise 为什么要引入微任务?'],
           ['/async/006/', 'Promise系列(三): Promise 如何实现链式调用?'],
-          ['/async/007/', 'Promise系列(四): Promise 实现 resolve、reject 和 finally'],
+          [
+            '/async/007/',
+            'Promise系列(四): Promise 实现 resolve、reject 和 finally',
+          ],
           ['/async/008/', 'Promise系列(五): Promise 实现 all 和 race 方法'],
           ['/async/009/', '谈谈你对 Generator 以及协程的理解'],
           ['/async/010/', '如何让 Generator 的异步代码按顺序执行完毕？'],
           ['/async/011/', '解释一下async/await的运行机制'],
-          ['/async/012/', 'forEach 中用 await 会产生什么问题?怎么解决这个问题？']
-        ]
+          [
+            '/async/012/',
+            'forEach 中用 await 会产生什么问题?怎么解决这个问题？',
+          ],
+        ],
       },
       {
         title: 'TCP协议',
         children: [
           ['/networkprotocol/tcp/001/', 'TCP和UDP协议概述'],
           ['/networkprotocol/tcp/002/', '三次握手四次挥手'],
-          ['/networkprotocol/tcp/003/', '半连接队列和 SYN Flood 攻击是什么关系？'],
+          [
+            '/networkprotocol/tcp/003/',
+            '半连接队列和 SYN Flood 攻击是什么关系？',
+          ],
           ['/networkprotocol/tcp/004/', 'TCP 报文头部的字段介绍'],
           ['/networkprotocol/tcp/005/', '谈谈 TCP 快速打开的原理(TFO)'],
           ['/networkprotocol/tcp/006/', 'TCP报文中的时间戳的作用'],
           ['/networkprotocol/tcp/007/', 'TCP流量控制'],
           ['/networkprotocol/tcp/008/', 'TCP拥塞控制'],
           ['/networkprotocol/tcp/009/', 'Negle 算法和延迟确认'],
-        ]
+        ],
       },
       {
         title: 'HTTP协议',
@@ -155,14 +163,20 @@ module.exports = {
           ['/networkprotocol/http/004/', 'http 状态码'],
           ['/networkprotocol/http/005/', 'http 协议有哪些特点和去缺点'],
           ['/networkprotocol/http/006/', 'accept 系列字段解析'],
-          ['/networkprotocol/http/007/', '对于定长和不定长的数据，HTTP 是怎么传输的？'],
+          [
+            '/networkprotocol/http/007/',
+            '对于定长和不定长的数据，HTTP 是怎么传输的？',
+          ],
           ['/networkprotocol/http/008/', 'HTTP 如何处理大文件的传输？'],
           ['/networkprotocol/http/009/', 'HTTP 中如何处理表单数据的提交？'],
-          ['/networkprotocol/http/010/', 'HTTP1.1 如何解决 HTTP 的队头阻塞问题？'],
+          [
+            '/networkprotocol/http/010/',
+            'HTTP1.1 如何解决 HTTP 的队头阻塞问题？',
+          ],
           ['/networkprotocol/http/011/', '如何理解 HTTP 代理？'],
           ['/networkprotocol/http/012/', 'HTTPS 和 TLS'],
           ['/networkprotocol/http/013/', 'HTTP2'],
-        ]
+        ],
       },
       {
         title: 'Vue',
@@ -173,13 +187,14 @@ module.exports = {
           ['/vue/004/', '实现 Virtual DOM 下的一个 VNode 节点'],
           ['/vue/005/', 'template 模板是怎样通过 Compile 编译的'],
           ['/vue/006/', '数据状态更新时的差异 diff 及 patch 机制'],
-          ['/vue/007/', '批量异步更新策略及 nextTick 原理'],          
+          ['/vue/007/', '批量异步更新策略及 nextTick 原理'],
           ['/vue/008/', 'Vuex 状态管理的工作原理'],
           ['/vue/009/', 'Vue3 Diff算法'],
           ['/vue/010/', 'Vue3 响应式原理'],
           ['/vue/011/', 'Vue2/3 响应式对数组的处理'],
-          ['/vue/012/', '012 手写 Vuex 核心原理']
-        ]
+          ['/vue/012/', '012 手写 Vuex 核心原理'],
+          ['/vue/013/', '013 v-model 语法糖'],
+        ],
       },
       {
         title: 'React',
@@ -188,13 +203,11 @@ module.exports = {
           ['/react/001/', 'React 生命周期'],
           ['/react/002/', 'React diff 算法'],
           ['/react/003/', 'React hooks 和 class 组件'],
-        ]
+        ],
       },
       {
         title: 'Nodejs',
-        children: [
-          ['/nodejs/001/', '001 进程和线程']
-        ]
+        children: [['/nodejs/001/', '001 进程和线程']],
       },
       {
         title: 'Webpack',
@@ -203,9 +216,8 @@ module.exports = {
           ['/webpack/002/', '002 其他打包工具对比'],
           ['/webpack/003/', '003 实现自制的plugin'],
           ['/webpack/003/', '004 实现自制的loader'],
-        ]
-      }
-    ]
-  }
-
+        ],
+      },
+    ],
+  },
 }
