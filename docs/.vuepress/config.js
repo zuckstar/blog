@@ -67,6 +67,7 @@ module.exports = {
           ['/design-pattern/002/', '单例模式'],
           ['/design-pattern/003/', '策略模式'],
           ['/design-pattern/004/', '代理模式'],
+          ['/design-pattern/005/', '装饰器模式'],
         ],
       },
       {
@@ -74,6 +75,7 @@ module.exports = {
         children: [
           ['/js-senior/001/', '异常处理'],
           ['/js-senior/002/', '插件机制（中间件）'],
+          ['/js-senior/003/', '事件总线'],
         ],
       },
       {
@@ -188,12 +190,13 @@ module.exports = {
           ['/vue/005/', 'template 模板是怎样通过 Compile 编译的'],
           ['/vue/006/', '数据状态更新时的差异 diff 及 patch 机制'],
           ['/vue/007/', '批量异步更新策略及 nextTick 原理'],
-          ['/vue/008/', 'Vuex 状态管理的工作原理'],
+          ['/vue/008/', '008 Vuex 状态管理的工作原理'],
           ['/vue/009/', 'Vue3 Diff算法'],
           ['/vue/010/', 'Vue3 响应式原理'],
           ['/vue/011/', 'Vue2/3 响应式对数组的处理'],
           ['/vue/012/', '012 手写 Vuex 核心原理'],
           ['/vue/013/', '013 v-model 语法糖'],
+          ['/vue/014/', '014 vue 的通信机制'],
         ],
       },
       {
@@ -216,6 +219,13 @@ module.exports = {
           ['/webpack/002/', '002 其他打包工具对比'],
           ['/webpack/003/', '003 实现自制的plugin'],
           ['/webpack/003/', '004 实现自制的loader'],
+        ],
+      },
+      {
+        title: 'typescript',
+        children: [
+          ['/ts/001/', '001 typescript 常用工具泛型的使用和实现'],
+          ['/ts/002/', '002 unkonw,any,never 类型'],
         ],
       },
     ],
