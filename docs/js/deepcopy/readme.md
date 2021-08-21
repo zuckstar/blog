@@ -103,7 +103,10 @@ VM2370:1 Uncaught TypeError: Converting circular structure to JSON
 */
 ```
 
-2. 无法拷贝函数（重点）
+2. 无法拷贝一些特殊的对象，诸如 RegExp,Date,Set,Map等
+
+
+3. 无法拷贝函数（重点）
 
 丢失函数属性
 
@@ -114,6 +117,8 @@ let newObj = JSON.parse(JSON.stringify(obj))
 
 newObj // {name: "function"}
 ```
+
+4. 原型丢失的情况
 
 ### 一步一步手写深拷贝代码
 
@@ -138,26 +143,42 @@ const deepClone = (target) => {
 二：解决循环引用
 
 ```js
-const isObject = (target) => {
-  typeof target === 'object' || typeof target !== null
+const isObject = (obj) => {
+  return typeof obj === 'object' && obj !== null
 }
 
-// 利用 WeakMap 对 target 构成弱引用
-const deepClone = (target, map = new WeakMap()) => {
-  // 如果已经拷贝过该对象，则直接返回
-  if (map.get(target)) return target
+const isPrimitive = (value) => {
+  return (
+    typeof value === 'string' ||
+    typeof value === 'number' ||
+    typeof value === 'boolean' ||
+    typeof value === 'undefined' ||
+    typeof value === 'symbol' ||
+    typeof value === 'bigint' ||
+    value === null
+  )
+}
+
+const deepCloneBase = function(target, map = new WeakMap()) {
+  let existobj = map.get(target)
+
+  if (existobj) return existobj
+
+  if (isPrimitive(target)) {
+    return target
+  }
 
   if (isObject(target)) {
-    map.set(target, true)
     const cloneTarget = Array.isArray(target) ? [] : {}
-    for (let prop in target) {
-      if (target.hasOwnProperty(prop)) {
-        cloneTarget[prop] = deepClone(target[prop], map)
+
+    map.set(target, cloneTarget)
+
+    for (let key in target) {
+      if (target.hasOwnProperty(key)) {
+        cloneTarget[key] = deepCloneBase(target[key], map)
       }
     }
     return cloneTarget
-  } else {
-    return target
   }
 }
 ```
@@ -165,82 +186,83 @@ const deepClone = (target, map = new WeakMap()) => {
 三、拷贝特殊对象
 
 ```js
-// 判断是否是基本数据类型
+// 第二种：基本的深拷贝
+// 1. 解决数组和对象的深拷贝
+// 2. 解决循环引用的问题
+// 3. 解决原型继承的问题
+// 4. 解决特殊对象拷贝的问题
+
+const isObject = (obj) => {
+  return typeof obj === 'object' && obj !== null
+}
+
 const isPrimitive = (value) => {
   return (
     typeof value === 'string' ||
     typeof value === 'number' ||
-    typeof value === 'symbol' ||
     typeof value === 'boolean' ||
-    typeof value === 'bigint' ||
     typeof value === 'undefined' ||
+    typeof value === 'symbol' ||
+    typeof value === 'bigint' ||
     value === null
   )
 }
 
-// 判断是否是一个对象
-const isObject = (target) => {
-  typeof target === 'object' || typeof target !== null
+const isFunction = (fn) => {
+  return typeof fn === 'function'
 }
 
-const getType = (target) => Object.prototype.toString.call(target)
-
-const canTraverse = {
-  '[object Map]': true,
-  '[object Set]': true,
-  '[object Array]': true,
-  '[object Object]': true,
-  '[object Arguments]': true,
+const isMap = (obj) => {
+  return Object.prototype.toString.call(obj) === '[object Map]'
 }
 
-const deepClone = (target, map = new WeakMap()) => {
-  // 处理基本值
+const isSet = (obj) => {
+  return Object.prototype.toString.call(obj) === '[object Set]'
+}
+
+const deepCloneBase = function(target, map = new WeakMap()) {
+  let existobj = map.get(target)
+
+  if (existobj) return existobj
+
   if (isPrimitive(target)) {
     return target
   }
 
-  let type = getType(target)
+  if (isObject(target)) {
+    let ctor = target.__proto__.constructor
 
-  let cloneTarget
+    const cloneTarget = new ctor()
 
-  if (!canTraverse[type]) {
-    // 处理不能迭代遍历的对象(扩展)
-    handleNotTraverse(target, type)
-    return
-  } else {
-    // 保证对象的原型不丢失
-    let ctor = target.prototype
-    cloneTarget = new ctor()
-  }
+    map.set(target, cloneTarget)
 
-  // 如果已经拷贝过该对象，则直接返回
-  if (map.get(target)) return target
-
-  map.set(target, true)
-
-  if (type === '[object Map]') {
-    // 处理 Map
-    target.forEach((item, key) => {
-      cloneTarget.set(deepClone(key, map), deepClone(item, map))
-    })
-  }
-
-  if (type === '[object Set]') {
-    // 处理 Set
-    target.forEach((item) => {
-      target.add(deepClone(item, map))
-    })
-  }
-
-  // 处理数组和对象, 可以被 for...in 遍历，而 Map 和 Set 不能
-  for (let prop in target) {
-    if (target.hasOwnProperty(prop)) {
-      cloneTarget[prop] = deepClone(target[prop], map)
+    if (isMap(target)) {
+      // 处理 map 数据结构
+      target.forEach((item, key) => {
+        cloneTarget.set(deepCloneBase(key, map), deepCloneBase(item, map))
+      })
+    } else if (isSet(target)) {
+      // 处理 set 数据结构
+      target.forEach((item) => {
+        cloneTarget.add(deepCloneBase(item, map))
+      })
+    } else {
+      // 处理对象和数组
+      for (let key in target) {
+        if (target.hasOwnProperty(key)) {
+          cloneTarget[key] = deepCloneBase(target[key], map)
+        }
+      }
     }
+
+    return cloneTarget
   }
 
-  return cloneTarget
+  if (isFunction(target)) {
+    return cloneFunc(target)
+  }
 }
+
 ```
 
 四、处理不能被迭代的对象（扩展）
@@ -306,89 +328,7 @@ const handleNotTraverse = (target, type) => {
 }
 ```
 
-## 序列化对象
 
-### 思路
-
-1. 区分基本数据类型和对象
-
-2. 基本数据类型调用 toString 方法转成字符串
-
-3. 普通对象/数组对象中 null 返回 null，其他对象遍历属性转成字符串进行对象拼接（涉及深拷贝）
-
-4. 特殊对象进行特殊处理
-
-简单实现
-
-```js
-const isObject = (target) => {
-  typeof target === 'object' || typeof target !== null
-}
-
-const json2str = (target) => {
-  let arr = []
-  const isArray = (target) => {
-    return Array.isArray(target)
-  }
-  const fmt = function(s) {
-    if (typeof s == 'object' && s !== null) return json2str(s)
-    return /^(string)$/.test(typeof s) ? `"${s}"` : s
-  }
-
-  for (let prop in target) {
-    if (target.hasOwnProperty(prop)) {
-      if (isArray(target)) {
-        arr.push(`${fmt(target[prop])}`)
-      } else {
-        arr.push(`"${prop}":${fmt(target[prop])}`)
-      }
-    }
-  }
-
-  if (!isArray(target)) return `{${arr.join(',')}}`
-  else return `[${arr.join(',')}]`
-}
-```
-
-## 判断两个对象是否相等
-
-```js
-const deepEqual = function(x, y) {
-  // 两个对象指向同一内存 , 包括 null，基本变量
-  if (x === y) {
-    return true
-  } else if (
-    typeof x === 'object' &&
-    typeof y === 'object' &&
-    x !== null &&
-    y !== null
-  ) {
-    // x, y 皆为非 null 的对象
-
-    // 属性个数不符合
-    if (Object.keyes(x).length !== Object.keys(y).length) return false
-
-    // 对 x 逐个遍历
-    for (let prop in x) {
-      if (y.hasOwnProperty(prop)) {
-        if (!deepEqual(x[prop], y[prop])) return false // 递归进行深度比较
-      } else {
-        return false
-      }
-    }
-
-    return true
-  }
-
-  return false
-}
-```
-
-实现代码中，以下边界情况无法处理：
-
-其中某个属性本身是一个对象
-某个属性的值为 NaN
-一个对象的属性的值为 undefined，另一个对象中没有这个属性
 
 ## 参考文章
 

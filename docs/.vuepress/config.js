@@ -31,6 +31,7 @@ module.exports = {
           ['/js/for/', 'for语句'],
           ['/js/closure/', '闭包'],
           ['/js/deepcopy/', '深拷贝和浅拷贝'],
+          ['/js/serialize/', '序列化对象'],
           ['/js/prototypeChain/', '原型链和继承'],
           ['/js/call&apply/', 'call和apply函数'],
           ['/js/bind/', 'bind函数'],
@@ -163,7 +164,7 @@ module.exports = {
           ['/networkprotocol/http/002/', 'http 的请求方法'],
           ['/networkprotocol/http/003/', '如何理解 URI'],
           ['/networkprotocol/http/004/', 'http 状态码'],
-          ['/networkprotocol/http/005/', 'http 协议有哪些特点和去缺点'],
+          ['/networkprotocol/http/005/', 'http 协议有哪些特点和缺点'],
           ['/networkprotocol/http/006/', 'accept 系列字段解析'],
           [
             '/networkprotocol/http/007/',
@@ -218,7 +219,7 @@ module.exports = {
           ['/webpack/001/', '001 webpack 核心原理'],
           ['/webpack/002/', '002 其他打包工具对比'],
           ['/webpack/003/', '003 实现自制的plugin'],
-          ['/webpack/003/', '004 实现自制的loader'],
+          ['/webpack/004/', '004 实现自制的loader'],
         ],
       },
       {
